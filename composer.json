@@ -1,0 +1,20 @@
+{
+    "name": "wow-character-viewer",
+    "description": "View and share WoW character information pulled from the Battle.NET API.",
+    "keywords": ["WoW character", "Battle.NET API", "WoW profile"],
+    "homepage": "https://github.com/chrisvogt/wow-character-viewer",
+    "support": {
+        "issues": "https://github.com/chrisvogt/wow-character-viewer/issues",
+        "source": "https://github.com/chrisvogt/wow-character-viewer"
+    },
+    "authors": [
+        {
+            "name": "CJ Vogt",
+            "email": "mail@chrisvogt.me"
+        }
+    ],
+    "require": {
+        "slim/slim": "~2.6"
+    },
+    "license": "MIT"
+}

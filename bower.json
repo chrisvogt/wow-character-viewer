@@ -1,0 +1,27 @@
+{
+  "name": "wow-character-viewer",
+  "version": "0.0.1",
+  "homepage": "https://github.com/chrisvogt/wow-character-viewer",
+  "authors": [
+    "Chris Vogt <mail@chrisvogt.me>"
+  ],
+  "description": "Load WoW character data from the Battle.NET API.",
+  "main": "index.php",
+  "keywords": [
+    "Polymer",
+    "WoW",
+    "Battle.NET",
+    "API"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
