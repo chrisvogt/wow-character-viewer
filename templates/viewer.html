@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="full">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Search, display, and share your WoW character profile with this simple online tool by CJ Vogt.">
+    <meta name="author" content="CJ Vogt">
+    <meta property="og:title" content="I found my World of Warcraft character on WoW Profile Card" />
+    <meta property="og:image" content="http://res.cloudinary.com/chrisvogt/image/upload/v1420461939/wow-profile-card_p6i5ys.jpg" />
+
+    <title>WoW Profile Card | View and share World of Warcraft profiles</title>
+
+    <!-- Web Components Polyfill -->
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+
+    <!-- Custom Elements -->
+    <link rel="import" href="bower_components/wow-profile-card/wow-profile-card.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+    /*!
+     * Start Bootstrap - Full HTML Template (http://startbootstrap.com)
+     * Code licensed under the Apache License v2.0.
+     * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+     */
+    body {
+        margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    .full {
+        background: url('http://res.cloudinary.com/chrisvogt/image/upload/v1420441762/wow-burning-crusade-artwork_q0ng2f.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+    #page-top {
+      background: none;
+    }
+    .center {
+        text-align: center;
+        color: #eaeaea;
+        margin-top: 4px;
+    }
+    .center a {
+        color: #aeaeae;
+    }
+    .navbar {
+      border-bottom: 1px solid #686868;
+      z-index: 5;
+    }
+    .polymer {
+        width: 75px;
+        margin: 0 auto;
+    }
+    .fa-twitter-square {
+        color: #1dcaff;
+    }
+    .login_control
+    {
+      background-color: rgba(0,0,0,.6);
+      border-bottom-left-radius: 8px;
+      -moz-border-bottom-left-radius: 8px;
+      -webkit-border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      -moz-border-bottom-right-radius: 8px;
+      -webkit-border-bottom-right-radius: 8px;
+    }
+    .control
+    {
+      color: #000;
+      margin: 10px;
+    }
+    .label
+    {
+      color: #EB4F26;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .btn-orange
+    {
+      background-color: #FC563B;
+      margin-bottom: 8px;
+      color: #fefefe;
+    }
+    .btn-orange:hover
+    {
+      background-color: #F22F26;
+      color: #eaeaea;
+    }
+    .share-button {
+      position: relative;
+      top: -114px;
+      left: 14px;
+    }
+    @media (max-width: 391px) {
+      .share-button {
+        top: -300px;
+        z-index: 100;
+      }
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" unresolved>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://www.chrisvogt.me">CHRISVOGT.me</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="https://www.github.com/chrisvogt/wow-profile-card"><i class="fa fa-code"></i> View Source</a>
+                    </li>
+                    <li>
+                        <a href="https://www.github.com/chrisvogt/wow-profile-card/fork"><i class="fa fa-code-fork"></i> Fork on GitHub</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <wow-profile-card {% if character and server %}characterName="{{ character }}" server="{{ server }}"{% endif %}></wow-profile-card>
+
+        <div class="col-md-6 col-md-offset-3">
+            <div class="row login_control">
+
+            <div class="share-button"></div>
+              <form id="wow-form">
+                <div class="control">
+                  <div class="label">Server</div>
+                  <select id="server" class="form-control">
+                  </select>
+                  <!--
+                  Perhaps add this back as a fallback if servers fail to load.
+                  <input type="text" id="server" class="form-control" value="Server" autocomplete="off"> -->
+                </div>
+                <div class="control">
+                  <div class="label">Character</div>
+                  <input id="characterName" class="form-control" value="Character" autocomplete="off">
+                </div>
+                <div align="center">
+                  <button class="btn btn-orange" type="submit">LOAD CHARACTER</button>
+                </div>
+              </form>
+              </div><!-- /.row -->
+        </div><!-- /.login_control -->
+
+      </div><!-- /.container -->
+
+    <div class="container">
+    <footer class="center">
+        <p>Follow me on <i class="fa fa-twitter-square"></i> <a href="https://twitter.com/c1v0">@c1v0</a></p>
+        <a href="https://www.polymer-project.org/" title="Polymer web components"><img class="polymer" src="https://www.polymer-project.org/images/logos/p-logo.svg"></a>
+    </footer>
+    </div>
+
+    <script>
+    console && console.log("%c<wow-profile-card>\n%cLooking under the hood, huh? This element is open sourced on GitHub - check it out there. :)",
+                           "font-size:1.5em;color:#4558c9;", "color:#d61a7f;font-size:1em;");
+    </script>
+
+    <script>
+      window.onload = function() {
+        var wowForm = document.getElementById("wow-form");
+        var wowCard = document.getElementsByTagName('wow-profile-card')[0];
+
+        wowForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+          var charName = document.getElementById('characterName').value;
+          var serverName = document.getElementById('server').value;
+
+          wowCard.setAttribute('characterName', charName);
+          wowCard.setAttribute('server', serverName);
+        });
+
+        var select = document.getElementById('server');
+        //start ajax request
+        $.ajax({
+            url: "https://cdn.rawgit.com/chrisvogt/wow-profile-card/dev/data/realms.json",
+            dataType: "text",
+            success: function(data) {
+                var realms = $.parseJSON(data);
+                for (var i = 0; i < realms.realms.length; i++) {
+                  name = realms.realms[i].name;
+                  var opt = document.createElement('option');
+                  opt.textContent = name;
+                  opt.value = name;
+                  select.appendChild(opt);
+                }
+            }
+        });
+      }
+    </script>
+
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Social Share -->
+    <script src="share.min.js"></script>
+
+    <script>
+      new Share(".share-button", {
+        networks: {
+          facebook: {
+            app_id: "1593551597530332"
+          }
+        }
+      });
+    </script>
+
+    <!-- Googley eyes  ʘ_ʘ   -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-33558417-6', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</body>
+
+</html>

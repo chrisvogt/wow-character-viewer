@@ -14,7 +14,8 @@
     "API"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^0.5"
+    "polymer": "Polymer/polymer#^0.5",
+    "apply-author-styles": "eee-c/apply-author-styles"
   },
   "license": "MIT",
   "ignore": [
