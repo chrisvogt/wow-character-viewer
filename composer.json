@@ -3,6 +3,7 @@
     "description": "View and share WoW character information pulled from the Battle.NET API.",
     "keywords": ["WoW character", "Battle.NET API", "WoW profile"],
     "homepage": "https://github.com/chrisvogt/wow-character-viewer",
+    "license": "MIT",
     "support": {
         "issues": "https://github.com/chrisvogt/wow-character-viewer/issues",
         "source": "https://github.com/chrisvogt/wow-character-viewer"
@@ -14,6 +15,7 @@
         }
     ],
     "require": {
+        "php": ">=5.4",
         "slim/slim": "~2.6",
         "slim/views": "0.1.*",
         "twig/twig": "~1.18"
