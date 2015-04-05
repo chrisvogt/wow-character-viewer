@@ -15,7 +15,9 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^0.5",
-    "apply-author-styles": "eee-c/apply-author-styles"
+    "apply-author-styles": "eee-c/apply-author-styles",
+    "share-button": "carrot/share-button",
+    "wow-profile-card": "chrisvogt/wow-profile-card#dev"
   },
   "license": "MIT",
   "ignore": [

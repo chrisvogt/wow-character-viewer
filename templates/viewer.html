@@ -3,14 +3,34 @@
 
 <head>
     <meta charset="utf-8">
+<!--
+      brought to you by...
+ ██████╗ ██╗██╗   ██╗ ██████╗
+██╔════╝███║██║   ██║██╔═████╗
+██║     ╚██║██║   ██║██║██╔██║
+██║      ██║╚██╗ ██╔╝████╔╝██║
+╚██████╗ ██║ ╚████╔╝ ╚██████╔╝
+ ╚═════╝ ╚═╝  ╚═══╝   ╚═════╝
+     chrisvogt.me | @c1v0
+   -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Search, display, and share your WoW character profile with this simple online tool by CJ Vogt.">
     <meta name="author" content="CJ Vogt">
-    <meta property="og:title" content="I found my World of Warcraft character on WoW Profile Card" />
-    <meta property="og:image" content="http://res.cloudinary.com/chrisvogt/image/upload/v1420461939/wow-profile-card_p6i5ys.jpg" />
+
+{% if og_meta %}
+    {{ og_meta | raw }}
+{% endif %}
+    <meta property="og:author" content="WoW Character Viewer" />
 
     <title>WoW Profile Card | View and share World of Warcraft profiles</title>
+
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png">
+
+    <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- Web Components Polyfill -->
     <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
@@ -129,16 +149,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://www.chrisvogt.me">CHRISVOGT.me</a>
+                <a class="navbar-brand" href="http://www.chrisvogt.me">WoW Character Viewer</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="https://www.github.com/chrisvogt/wow-profile-card"><i class="fa fa-code"></i> View Source</a>
-                    </li>
-                    <li>
-                        <a href="https://www.github.com/chrisvogt/wow-profile-card/fork"><i class="fa fa-code-fork"></i> Fork on GitHub</a>
+                        <a href="https://www.github.com/chrisvogt/wow-character-viewer"><i class="fa fa-goto"></i> v0.0.1 (prototype)</a>
                     </li>
                 </ul>
             </div>
@@ -146,6 +163,8 @@
         </div>
         <!-- /.container -->
     </nav>
+
+    <a href="https://github.com/chrisvogt/wow-character-viewer"><img style="position: absolute; top: 48px; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
 
     <div class="container">
 
@@ -229,7 +248,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <!-- Social Share -->
-    <script src="share.min.js"></script>
+    <script src="bower_components/share-button/build/share.min.js"></script>
 
     <script>
       new Share(".share-button", {
